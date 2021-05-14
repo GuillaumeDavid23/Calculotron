@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Calculotron</title>
+</head>
+
+<body>
+    <h1 class="text-center">Calculotron</h1>
+    <div class="container h-100 d-flex flex-column justify-content-center">
+        
+        <div class="row justify-content-center">
+            <div id="stock" class="col-12 col-lg-6 d-flex justify-content-end h2 p-2"></div>
+        </div>
+        <div class="result row justify-content-center">
+            <div id="results" class="col-12 col-lg-6 d-flex justify-content-end h2 p-2">0</div>
+        </div>
+        <div class="row justify-content-center">
+            <div id="resetAll" class="col-3 col-md-3 col-xl-2 border-white p-2 text-white fw-bold btn btn-secondary rounded-0">C</div>
+            <div id="modulo" class="col-3 col-md-3 col-xl-2 border-white p-2 text-white fw-bold btn btn-secondary rounded-0">%</div>
+            <div id="remove" class="col-3 col-md-3 col-xl-2 border-white p-2 text-white fw-bold btn btn-secondary rounded-0">&Leftarrow;</div>
+            <div id="divide" class="col-3 col-md-3 col-xl-2 border-white p-2 text-white fw-bold btn btn-secondary rounded-0">&divide;</div>
+        </div>
+        <div class="row justify-content-center">
+            <div id="seven" class="col-3 col-md-3 col-xl-2 border-white p-2 text-white fw-bold btn btn-dark rounded-0">7</div>
+            <div id="eight" class="col-3 col-md-3 col-xl-2 border-white p-2 text-white fw-bold btn btn-dark rounded-0">8</div>
+            <div id="nine" class="col-3 col-md-3 col-xl-2 border-white p-2 text-white fw-bold btn btn-dark rounded-0">9</div>
+            <div id="multiply" class="col-3 col-md-3 col-xl-2 border-white p-2 text-white fw-bold btn btn-secondary rounded-0">&times;</div>
+        </div>
+        <div class="row justify-content-center">
+            <div id="fourth" class="col-3 col-md-3 col-xl-2 border-white p-2 text-white fw-bold btn btn-dark rounded-0">4</div>
+            <div id="five" class="col-3 col-md-3 col-xl-2 border-white p-2 text-white fw-bold btn btn-dark rounded-0">5</div>
+            <div id="six" class="col-3 col-md-3 col-xl-2 border-white p-2 text-white fw-bold btn btn-dark rounded-0" >6</div>
+            <div id="minus" class="col-3 col-md-3 col-xl-2 border-white p-2 text-white fw-bold btn btn-secondary rounded-0">-</div>
+        </div>
+        <div class="row justify-content-center">
+            <div id="one" class="col-3 col-md-3 col-xl-2 border-white p-2 text-white fw-bold btn btn-dark rounded-0">1</div>
+            <div id="two" class="col-3 col-md-3 col-xl-2 border-white p-2 text-white fw-bold btn btn-dark rounded-0">2</div>
+            <div id="three" class="col-3 col-md-3 col-xl-2 border-white p-2 text-white fw-bold btn btn-dark rounded-0">3</div>
+            <div id="plus" class="col-3 col-md-3 col-xl-2 border-white p-2 text-white fw-bold btn btn-secondary rounded-0">+</div>
+        </div>
+        <div class="row justify-content-center">
+            <div id="doubleZero" class="col-3 col-md-3 col-xl-2 border-white p-2 text-white fw-bold btn btn-dark rounded-0">00</div>
+            <div id="zero" class="col-3 col-md-3 col-xl-2 border-white p-2 text-white fw-bold btn btn-dark rounded-0">0</div>
+            <div id="point" class="col-3 col-md-3 col-xl-2 border-white p-2 text-white fw-bold btn btn-dark rounded-0">,</div>
+            <div id="equal" class="col-3 col-md-3 col-xl-2 border-white p-2 text-white fw-bold btn btn-danger rounded-0">=</div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
+    </script>
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script>
+        const options = {
+            bottom: '64px', // default: '32px'
+            right: '32px', // default: '32px'
+            left: 'unset', // default: 'unset'
+            time: '0.5s', // default: '0.3s'
+            mixColor: '#fff', // default: '#fff'
+            backgroundColor: '#fff',  // default: '#fff'
+            buttonColorDark: '#100f2c',  // default: '#100f2c'
+            buttonColorLight: '#fff', // default: '#fff'
+            saveInCookies: false, // default: true,
+            label: '🌓', // default: ''
+            autoMatchOsTheme: true // default: true
+        }
+
+        const darkmode = new Darkmode(options);
+        darkmode.showWidget();
+    </script>
+</body>
+
+</html>

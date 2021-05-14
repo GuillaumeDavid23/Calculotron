@@ -1,8 +1,16 @@
 body{
     height: 100vh;
-    
 }
 
 #results{
     background-color: rgba(98, 98, 98, 0.2);
+}
+.row{
+    height: 10%;
+}
+.row div{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

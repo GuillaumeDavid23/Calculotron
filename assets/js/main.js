@@ -19,6 +19,12 @@ var btnMinus = document.getElementById("minus");
 var btnMultiply = document.getElementById("multiply");
 var btnDivide = document.getElementById("divide");
 var btnModulo = document.getElementById("modulo");
+var btnSquare = document.getElementById("square");
+var btnParenth = document.getElementById("parenth");
+var btnRoot = document.getElementById("root");
+
+var btnPosNeg = document.getElementById("posNeg");
+
 
 //Déclaration des bouton de fonction
 var btnEqual = document.getElementById("equal");
@@ -31,10 +37,16 @@ var stock = document.getElementById("stock");
 
 //REGEX
 const regexChar = /[\+\-\/\*\%]/m;
+
+//Variable STOCK ET TEST
 var resetTest = false;
+var parenthTest = false;
+var NegTest = false;
 var stockReset = "";
+var resultat = 0;
 
 //DECLARATION DES FONCTIONS POUR LES CHIFFRES
+//DOUBLE ZERO
 const doubleZero = () => {
     if(resetTest == true){
         resetTest = false;
@@ -52,6 +64,7 @@ const doubleZero = () => {
         } 
     } 
 }
+//CHIFFRE ZERO
 const zero = () => {
     if(resetTest == true){
         resetTest = false;
@@ -69,6 +82,7 @@ const zero = () => {
         } 
     } 
 }
+//CHIFFRE UN
 const one = () => {
     if(resetTest == true){
         resetTest = false;
@@ -86,6 +100,7 @@ const one = () => {
         } 
     } 
 }
+//CHIFFRE DEUX
 const two = () => {
     if(resetTest == true){
         resetTest = false;
@@ -103,6 +118,7 @@ const two = () => {
         } 
     } 
 }
+//CHIFFRE TROIS
 const three = () => {
     if(resetTest == true){
         resetTest = false;
@@ -120,6 +136,7 @@ const three = () => {
         } 
     } 
 }
+//CHIFFRE QUATRE
 const four = () => {
     if(resetTest == true){
         resetTest = false;
@@ -137,6 +154,7 @@ const four = () => {
         } 
     }  
 }
+//CHIFFRE CINQ
 const five = () => {
     if(resetTest == true){
         resetTest = false;
@@ -154,6 +172,7 @@ const five = () => {
         } 
     }  
 }
+//CHIFFRE SIX
 const six = () => {
     if(resetTest == true){
         resetTest = false;
@@ -171,6 +190,7 @@ const six = () => {
         } 
     } 
 }
+//CHIFFRE SEPT
 const seven = () => {
     if(resetTest == true){
         resetTest = false;
@@ -188,6 +208,7 @@ const seven = () => {
         } 
     } 
 }
+//CHIFFRE HUIT
 const eight = () => {
     if(resetTest == true){
         resetTest = false;
@@ -205,6 +226,7 @@ const eight = () => {
         } 
     } 
 }
+//CHIFFRE NEUF
 const nine = () => {
     if(resetTest == true){
         resetTest = false;
@@ -224,124 +246,280 @@ const nine = () => {
 }
 
 //FONCTIONS POUR LES OPERATEURS
+//FONCTION PLUS
 const plus = () =>{
     let op = "+";
+    let str = stock.innerHTML;
+    let lastC = str.charAt(str.length-1);
     if (resetTest == true){
-        stock.innerHTML = stockReset;
+        stock.innerHTML = stockReset + op;
         resetTest = false;
     }
-    if(stock.innerHTML == "" || results.innerHTML == 0){
+    if(lastC == ")"){
         if(results.innerHTML != "0"){
-            let add = results.innerHTML + op;
+            let add = op + results.innerHTML;
             results.innerHTML = "0";
             stock.innerHTML += add;
+        }else{
+            stock.innerHTML += op;
         }
     }else{
-        let stockage = stock.innerHTML;
-        let add = stockage + results.innerHTML + op;
-        results.innerHTML = "0";
-        stock.innerHTML = add;
+        if(stock.innerHTML == "" || results.innerHTML == 0){
+            if(results.innerHTML != "0"){
+                let add = results.innerHTML + op;
+                results.innerHTML = "0";
+                stock.innerHTML += add;
+            }
+        }else{
+            let stockage = stock.innerHTML;
+            let add = stockage + results.innerHTML + op;
+            results.innerHTML = "0";
+            stock.innerHTML = add;
+        }
     }
 }
+//FONCTION MOINS
 const minus = () =>{
     let op = "-";
+    let str = stock.innerHTML;
+    let lastC = str.charAt(str.length-1);
     if (resetTest == true){
-        stock.innerHTML = stockReset;
+        stock.innerHTML = stockReset + op;
         resetTest = false;
     }
-    if(stock.innerHTML == "" || results.innerHTML == "0"){
+    if(lastC == ")"){
         if(results.innerHTML != "0"){
-            let add = results.innerHTML + op;
+            let add = op + results.innerHTML;
             results.innerHTML = "0";
             stock.innerHTML += add;
+        }else{
+            stock.innerHTML += op;
         }
     }else{
-        let stockage = stock.innerHTML;
-        let add = stockage + results.innerHTML + op;
-        results.innerHTML = "0";
-        stock.innerHTML = add;
+        if(stock.innerHTML == "" || results.innerHTML == "0"){
+            if(results.innerHTML != "0"){
+                let add = results.innerHTML + op;
+                results.innerHTML = "0";
+                stock.innerHTML += add;
+            }
+        }else{
+            let stockage = stock.innerHTML;
+            let add = stockage + results.innerHTML + op;
+            results.innerHTML = "0";
+            stock.innerHTML = add;
+        }
     }
 }
+//FONCTION MULTIPLIER
 const multiply = () =>{
     let op = "*";
+    let str = stock.innerHTML;
+    let lastC = str.charAt(str.length-1); 
     if (resetTest == true){
-        stock.innerHTML = stockReset;
+        stock.innerHTML = stockReset + op;
         resetTest = false;
     }
-    if(stock.innerHTML == "" || results.innerHTML == "0"){
+    if(lastC == ")"){
         if(results.innerHTML != "0"){
-            let add = results.innerHTML + op;
+            let add = op + results.innerHTML;
             results.innerHTML = "0";
             stock.innerHTML += add;
+        }else{
+            stock.innerHTML += op;
         }
     }else{
-        let stockage = stock.innerHTML;
-        let add = stockage + results.innerHTML + op;
-        results.innerHTML = "0";
-        stock.innerHTML = add;
+        if(stock.innerHTML == "" || results.innerHTML == "0"){
+            if(results.innerHTML != "0"){
+                let add = results.innerHTML + op;
+                results.innerHTML = "0";
+                stock.innerHTML += add;
+            }
+        }else{
+            let stockage = stock.innerHTML;
+            let add = stockage + results.innerHTML + op;
+            results.innerHTML = "0";
+            stock.innerHTML = add;
+        }
     }
 }
+//FONCTION DIVISER
 const divide = () =>{
     let op = "/";
+    let str = stock.innerHTML;
+    let lastC = str.charAt(str.length-1);
     if (resetTest == true){
-        stock.innerHTML = stockReset;
+        stock.innerHTML = stockReset + op;
         resetTest = false;
     }
-    if(stock.innerHTML == "" || results.innerHTML == "0"){
+    if(lastC == ")"){
         if(results.innerHTML != "0"){
-            let add = results.innerHTML + op;
+            let add = op + results.innerHTML;
             results.innerHTML = "0";
             stock.innerHTML += add;
+        }else{
+            stock.innerHTML += op;
         }
     }else{
-        let stockage = stock.innerHTML;
-        let add = stockage + results.innerHTML + op;
-        results.innerHTML = "0";
-        stock.innerHTML = add;
+        if(stock.innerHTML == "" || results.innerHTML == "0"){
+            if(results.innerHTML != "0"){
+                let add = results.innerHTML + op;
+                results.innerHTML = "0";
+                stock.innerHTML += add;
+            }
+        }else{
+            let stockage = stock.innerHTML;
+            let add = stockage + results.innerHTML + op;
+            results.innerHTML = "0";
+            stock.innerHTML = add;
+        }
     }
 }
+//FONCTION MODULO
 const modulo = () =>{
     let op = "%";
+    let str = stock.innerHTML;
+    let lastC = str.charAt(str.length-1);
     if (resetTest == true){
-        stock.innerHTML = stockReset;
+        stock.innerHTML = stockReset + op;
         resetTest = false;
     }
-    if(stock.innerHTML == "" || results.innerHTML == "0"){
+    if(lastC == ")"){
         if(results.innerHTML != "0"){
-            let add = results.innerHTML + op;
+            let add = op + results.innerHTML;
             results.innerHTML = "0";
             stock.innerHTML += add;
+        }else{
+            stock.innerHTML += op;
         }
     }else{
-        let stockage = stock.innerHTML;
-        let add = stockage + results.innerHTML + op;
-        results.innerHTML = "0";
-        stock.innerHTML = add;
+        if(stock.innerHTML == "" || results.innerHTML == "0"){
+            if(results.innerHTML != "0"){
+                let add = results.innerHTML + op;
+                results.innerHTML = "0";
+                stock.innerHTML += add;
+            }
+        }else{
+            let stockage = stock.innerHTML;
+            let add = stockage + results.innerHTML + op;
+            results.innerHTML = "0";
+            stock.innerHTML = add;
+        }
     }
 }
-
+//FONCTION PARENTHESES
+const parenth = () => {
+    if (resetTest == true){
+        stock.innerHTML = stockReset + "*";
+        resetTest = false;
+    }
+    if(!parenthTest){
+        stock.innerHTML += "(";
+        parenthTest = true;
+    }else{
+        stock.innerHTML += results.innerHTML + ")";
+        results.innerHTML = "0";
+        parenthTest = false;
+    }
+}
+//FONCTION METTRE AUX CARRE
+const square = () => {
+    if(resetTest == true){
+        resetTest = false;
+        stock.innerHTML = stockReset;
+        if(stock.innerHTML == "0"){
+            stock.innerHTML = "";
+        }else{
+            stock.innerHTML = Math.pow(stock.innerHTML, 2);
+        } 
+    }else{
+        if(results.innerHTML == "0"){
+            results.innerHTML = "0";
+        }else{
+            results.innerHTML = results.innerHTML.replace('(', '');
+            results.innerHTML = results.innerHTML.replace(')', '');
+            results.innerHTML = Math.pow(results.innerHTML, 2);
+        } 
+    } 
+}
+//FONCTION RACINE CARRE
+const root = () => {
+    if(resetTest == true){
+        resetTest = false;
+        stock.innerHTML = stockReset;
+        if(stock.innerHTML == "0"){
+            stock.innerHTML = "";
+        }else{
+            stock.innerHTML = Math.sqrt(stock.innerHTML);
+        } 
+    }else{
+        if(results.innerHTML == "0"){
+            results.innerHTML = "0";
+        }else{
+            results.innerHTML = Math.sqrt(results.innerHTML);
+        } 
+    } 
+}
+//FONCTION POSITIF / NEGATIF
+const posNeg = () => {
+    if(resetTest == true){
+        resetTest = false;
+        results.innerHTML = stockReset;
+        stock.innerHTML = "";
+    }
+    if(results.innerHTML != "0"){
+        if(!NegTest){
+            stockReset = results.innerHTML;
+            results.innerHTML = "(-" + results.innerHTML + ")";
+            NegTest = true;
+        }else{
+            results.innerHTML = results.innerHTML.replace('-', '');
+            results.innerHTML = results.innerHTML.replace('(', '');
+            results.innerHTML = results.innerHTML.replace(')', '');
+            NegTest = false;
+        }
+    }
+}
 //FONCTIONS POUR LES UTILITAIRES
+//FONCTION EGAL
 const equal =()=>{
     let str = stock.innerHTML;
     let lastC = str.charAt(str.length-1); 
     let testChar = regexChar.test(lastC);
-    if(results.innerHTML != "0" && stock.innerHTML != ""){
+    if(stock.innerHTML != "" && resetTest == true){
+        return 0;
+    }
+    else if (stock.innerHTML == ""){
+        return 0;
+    }
+    else if (lastC == "%" && results.innerHTML == "0") {
+        return 0;
+    }
+    else if(parenthTest == true){
+        stock.innerHTML += results.innerHTML + ")";
+        results.innerHTML = "0";
+        parenthTest = false;
+        resultat = eval(stock.innerHTML);
+        stock.innerHTML += " = " + resultat;
+        stockReset = resultat;
+        resetTest = true;
+        return 0;
+    }
+    else if(results.innerHTML != "0" || stock.innerHTML != ""){
         if(testChar){
             let add = stock.innerHTML + results.innerHTML;
             results.innerHTML = "0";
             stock.innerHTML = add;
-            var resultat = eval(stock.innerHTML);
-            
+            resultat = eval(stock.innerHTML);
             stock.innerHTML += " = " + resultat;
         }else{
-            let resultat = eval(stock.innerHTML);
+            resultat = eval(stock.innerHTML);
             stock.innerHTML += " = " + resultat;
         }
         stockReset = resultat;
         resetTest = true;
     }
 }
-
+//FONCTION SUPPRESSION
 const suppr = () => {
     if(results.innerHTML != "0"){
         var newStr = results.innerHTML.substring(0, results.innerHTML.length - 1);
@@ -353,9 +531,21 @@ const suppr = () => {
         results.innerHTML = "0";
     }
 }
-
+//FONCTION VIRGULES
 const point = () => {
-    results.innerHTML += ".";
+    if(results.innerHTML.indexOf(".") == "-1"){
+        results.innerHTML += ".";
+    } 
+}
+
+//FONCTION RESET COMPLET
+const reset = () => {
+    results.innerHTML = "0";
+    stock.innerHTML = "";
+    stockReset = 0;
+    resetTest = false;
+    parenthTest = false;
+    NegTest = false;
 }
 
 //EVENT LISTENER CLAVIER
@@ -406,11 +596,26 @@ addEventListener('keydown', (event) => {
         case "/" :
             divide();
             break;
+        case "%" :
+            modulo();
+            break;
+        case "²" :
+            square();
+            break;
+        case "(" :
+            parenth();
+            break;
+        case ")" :
+            parenth();
+            break;
         case "Enter" :
             equal();
             break;
         case "Backspace" :
             suppr();
+            break;
+        case "Delete" :
+            reset();
             break;
     }  
 });
@@ -419,7 +624,7 @@ addEventListener('keydown', (event) => {
 btnPoint.addEventListener("click", function(){
     point();
 });
-//Bouton DOUBLE ZERO
+//Bouton double ZERO
 btnDoubleZero.addEventListener("click", function(){
     doubleZero();
 });
@@ -489,7 +694,19 @@ btnEqual.addEventListener("click", function(){
 btnModulo.addEventListener("click", function(){
     modulo();
 });
-
+//Bouton carré
+btnSquare.addEventListener("click", function(){
+    square();
+});
+btnParenth.addEventListener("click", function(){
+    parenth();
+});
+btnRoot.addEventListener("click", function(){
+    root();
+});
+btnPosNeg.addEventListener("click", function(){
+    posNeg();
+});
 //*********AUTRES************
 //SUPPRIMER
 btnRemove.addEventListener("click", function(){
@@ -497,9 +714,5 @@ btnRemove.addEventListener("click", function(){
 });
 //RESET ALL
 btnReset.addEventListener("click", function(){
-        results.innerHTML = "0";
-        stock.innerHTML = "";
-        stockReset = 0;
-        resetTest = false;
+    reset();
 });
-

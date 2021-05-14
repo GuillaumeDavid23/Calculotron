@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -12,20 +13,28 @@
 </head>
 
 <body>
-    <h1 class="text-center">Calculotron</h1>
+    
     <div class="container h-100 d-flex flex-column justify-content-center">
-        
+        <h1 class="text-center">Calculotron</h1>
         <div class="row justify-content-center">
-            <div id="stock" class="col-12 col-lg-6 d-flex justify-content-end h2 p-2"></div>
+            <div id="stock" class="col-12 col-lg-8 d-flex justify-content-end h2 p-2"></div>
         </div>
         <div class="result row justify-content-center">
-            <div id="results" class="col-12 col-lg-6 d-flex justify-content-end h2 p-2">0</div>
+            <div id="results" class="col-12 col-lg-8 d-flex justify-content-end h2 p-2">0</div>
         </div>
         <div class="row justify-content-center">
             <div id="resetAll" class="col-3 col-md-3 col-xl-2 border-white p-2 text-white fw-bold btn btn-secondary rounded-0">C</div>
             <div id="modulo" class="col-3 col-md-3 col-xl-2 border-white p-2 text-white fw-bold btn btn-secondary rounded-0">%</div>
-            <div id="remove" class="col-3 col-md-3 col-xl-2 border-white p-2 text-white fw-bold btn btn-secondary rounded-0">&Leftarrow;</div>
+            <div id="parenth" class="col-3 col-md-3 col-xl-2 border-white p-2 text-white fw-bold btn btn-secondary rounded-0">(x)</div>
+            <div id="remove" class="col-3 col-md-3 col-xl-2 border-white p-2 text-white fw-bold btn btn-info rounded-0">&Leftarrow;</div>
+            
+        </div>
+        <div class="row justify-content-center">
+            <div id="square" class="col-3 col-md-3 col-xl-2 border-white p-2 text-white fw-bold btn btn-secondary rounded-0">x²</div>
+            <div id="root" class="col-3 col-md-3 col-xl-2 border-white p-2 text-white fw-bold btn btn-secondary rounded-0">&radic;x</div>
+            <div id="posNeg" class="col-3 col-md-3 col-xl-2 border-white p-2 text-white fw-bold btn btn-secondary rounded-0">+/-</div>
             <div id="divide" class="col-3 col-md-3 col-xl-2 border-white p-2 text-white fw-bold btn btn-secondary rounded-0">&divide;</div>
+
         </div>
         <div class="row justify-content-center">
             <div id="seven" class="col-3 col-md-3 col-xl-2 border-white p-2 text-white fw-bold btn btn-dark rounded-0">7</div>
@@ -61,15 +70,16 @@
     <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
     <script>
         const options = {
-            bottom: '64px', // default: '32px'
-            right: '32px', // default: '32px'
+            top : '10px',
+            bottom: 'unset', // default: '32px'
+            right: '10px', // default: '32px'
             left: 'unset', // default: 'unset'
             time: '0.5s', // default: '0.3s'
             mixColor: '#fff', // default: '#fff'
             backgroundColor: '#fff',  // default: '#fff'
             buttonColorDark: '#100f2c',  // default: '#100f2c'
             buttonColorLight: '#fff', // default: '#fff'
-            saveInCookies: false, // default: true,
+            saveInCookies: true, // default: true,
             label: '🌓', // default: ''
             autoMatchOsTheme: true // default: true
         }
